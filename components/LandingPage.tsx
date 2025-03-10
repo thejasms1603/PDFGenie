@@ -3,11 +3,10 @@ import { motion } from "motion/react";
 import { Button } from "./ui/button";
 import { SignedIn, SignedOut, SignInButton } from "@clerk/nextjs";
 import { ArrowRight, Sparkle } from "lucide-react";
-import { useRouter } from "next/navigation";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
+import FileUploader from "./FileUploader";
 const LandingPage = () => {
-  const router = useRouter();
   return (
     <div>
       <Navbar />
@@ -35,7 +34,7 @@ const LandingPage = () => {
                 instantly answer questions and understand research with AI
               </p>
             </div>
-            <div className='flex mt-8'>
+            <div className='flex mt-4'>
               <SignedOut>
                 <Button
                   asChild
@@ -50,13 +49,7 @@ const LandingPage = () => {
                 </Button>
               </SignedOut>
               <SignedIn>
-                <Button
-                  onClick={() => router.push("/dashboard")}
-                  className='group relative px-8 py-6 text-lg bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white rounded-full transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1'
-                >
-                  Go to Dashboard
-                  <ArrowRight className='ml-2 group-hover:translate-x-1 transition-transform' />
-                </Button>
+                <FileUploader />
               </SignedIn>
             </div>
           </div>

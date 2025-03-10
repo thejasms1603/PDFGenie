@@ -4,9 +4,13 @@ import { FileText } from "lucide-react";
 import { motion } from "motion/react";
 import Link from "next/link";
 import { Button } from "./ui/button";
+import { useRouter } from "next/navigation";
+import ThemeToggle from "./ThemeToggle";
 const Navbar = () => {
+  const router = useRouter();
   return (
-    <div className=''>
+
+    <div>
       <motion.header
         className='fixed top-0 z-50 w-full p-2'
         initial={{ y: -20, opacity: 0 }}
@@ -37,11 +41,15 @@ const Navbar = () => {
                   variant='ghost'
                   size='sm'
                   asChild
-                  className='dark:text-neutral-300 hover:bg-neutral-200 dark:hover:bg-neutral-800 transition'
+                  className='bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700'
+                  onClick={()=>{
+                    router.push('/dashboard')
+                  }}
                 >
                   <Link href='/dashboard'>Dashboard</Link>
                 </Button>
-
+                
+                <ThemeToggle/>
                 <UserButton
                   appearance={{
                     elements: {
@@ -54,7 +62,7 @@ const Navbar = () => {
               </SignedIn>
               <SignedOut>
                 <Button
-                  className='dark:text-neutral-300 hover:bg-neutral-200 dark:hover:bg-neutral-800 transition'
+                  className='dark:text-neutral-300 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 transition'
                   variant='ghost'
                   size='sm'
                   asChild

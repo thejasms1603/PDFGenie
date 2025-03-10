@@ -43,7 +43,7 @@ const Footer = () => {
               </Button>
               <Button variant='ghost' size='icon'>
                 <Link
-                  href='https://www.linkedin.com/in/thejasms1603/'
+                  href='https://www.linkedin.com/in/thejasms/'
                   target='_blank'
                   rel='noopener noreferrer'
                 >
