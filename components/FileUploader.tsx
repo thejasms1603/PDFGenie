@@ -5,7 +5,7 @@ import { uploadToS3 } from "@/lib/s3";
 import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
 import { toast } from "sonner";
-import { redirect, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 const FileUploader = () => {
   const router = useRouter();
@@ -46,7 +46,7 @@ const FileUploader = () => {
         onSuccess: ({ chat_id }) => {
           console.log(data);
           toast.success("File uploaded successfully");
-          router.push(`/create-id/${chat_id}`);
+          router.push(`/chat/${chat_id}`);
         },
         onError: (error) => {
           toast.error("File uploading failed");
